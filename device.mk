@@ -297,8 +297,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     FrameworksResTarget \
-    WifiResTarget \
-    WifiResTarget_cape \
     WifiResTarget_spf
 
 PRODUCT_PACKAGES += \
