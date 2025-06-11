@@ -60,6 +60,9 @@ public class BootCompletedReceiver extends BroadcastReceiver {
             // Start necessary services
             startServices(context);
 
+            // Start Refresh Rate Service
+            RefreshUtils.startService(context);
+
             // Override HDR types
             overrideHdrTypes(context);
 
