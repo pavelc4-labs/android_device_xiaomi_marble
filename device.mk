@@ -312,7 +312,6 @@ PRODUCT_PACKAGES += \
     WifiResTarget_spf
 
 PRODUCT_PACKAGES += \
-    DialerResXiaomi \
     FrameworksResXiaomi \
     LineageResXiaomi \
     SettingsProviderResXiaomi \
