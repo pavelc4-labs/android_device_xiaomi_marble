@@ -13,6 +13,7 @@
 #include <linux/xiaomi_touch.h>
 #include <poll.h>
 #include <sys/ioctl.h>
+#include <vector>
 
 #include "SensorNotifierUtils.h"
 
@@ -65,7 +66,7 @@ void NonUiNotifier::notify() {
             "/sys/class/touch/touch_dev/gesture_single_tap_enabled",
             "/sys/class/touch/touch_dev/gesture_double_tap_enabled"};
 
-    pollfd* pollfds = new pollfd[paths.size()];
+    std::vector<pollfd> pollfds(paths.size());
     for (size_t i = 0; i < paths.size(); ++i) {
         int fd = open(paths[i], O_RDONLY);
         if (fd < 0) {
@@ -79,7 +80,7 @@ void NonUiNotifier::notify() {
     }
 
     while (mActive) {
-        int rc = poll(pollfds, paths.size(), -1);
+        int rc = poll(pollfds.data(), paths.size(), -1);
         if (rc < 0) {
             LOG(ERROR) << "failed to poll, err: " << rc;
             continue;
@@ -100,5 +101,9 @@ void NonUiNotifier::notify() {
                 LOG(DEBUG) << "failed to disable sensor";
             }
         }
+    }
+
+    for (const auto& pfd : pollfds) {
+        close(pfd.fd);
     }
 }
