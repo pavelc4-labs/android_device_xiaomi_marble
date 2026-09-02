@@ -18,32 +18,32 @@ from extract_utils.main import (
 )
 
 namespace_imports = [
-    'device/xiaomi/marble',
-    'hardware/qcom-caf/sm8450',
-    'hardware/qcom-caf/wlan',
-    'hardware/xiaomi',
-    'vendor/qcom/opensource/commonsys/display',
-    'vendor/qcom/opensource/commonsys-intf/display',
-    'vendor/qcom/opensource/dataservices',
+    "device/xiaomi/marble",
+    "hardware/qcom-caf/sm8450",
+    "hardware/qcom-caf/wlan",
+    "hardware/xiaomi",
+    "vendor/qcom/opensource/commonsys/display",
+    "vendor/qcom/opensource/commonsys-intf/display",
+    "vendor/qcom/opensource/dataservices",
 ]
 
 
 def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
-    return f'{lib}_{partition}' if partition == 'vendor' else None
+    return f"{lib}_{partition}" if partition == "vendor" else None
 
 
 lib_fixups: lib_fixups_user_type = {
     **lib_fixups,
     (
-        'vendor.qti.hardware.dpmservice@1.0',
-        'vendor.qti.hardware.dpmservice@1.1',
-        'vendor.qti.hardware.qccsyshal@1.0',
-        'vendor.qti.hardware.qccsyshal@1.1',
-        'vendor.qti.hardware.qccvndhal@1.0',
-        'vendor.qti.imsrtpservice@3.0',
-        'vendor.qti.diaghal@1.0',
-        'vendor.qti.hardware.wifidisplaysession@1.0',
-        'com.qualcomm.qti.dpm.api@1.0',
+        "vendor.qti.hardware.dpmservice@1.0",
+        "vendor.qti.hardware.dpmservice@1.1",
+        "vendor.qti.hardware.qccsyshal@1.0",
+        "vendor.qti.hardware.qccsyshal@1.1",
+        "vendor.qti.hardware.qccvndhal@1.0",
+        "vendor.qti.imsrtpservice@3.0",
+        "vendor.qti.diaghal@1.0",
+        "vendor.qti.hardware.wifidisplaysession@1.0",
+        "com.qualcomm.qti.dpm.api@1.0",
     ): lib_fixup_vendor_suffix,
 }
 
@@ -139,14 +139,14 @@ blob_fixups: blob_fixups_user_type = {
 }  # fmt: skip
 
 module = ExtractUtilsModule(
-    'marble',
-    'xiaomi',
+    "marble",
+    "xiaomi",
     blob_fixups=blob_fixups,
     lib_fixups=lib_fixups,
     namespace_imports=namespace_imports,
-    add_firmware_proprietary_file=True,
+    add_firmware_proprietary_file=False,
 )
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     utils = ExtractUtils.device(module)
     utils.run()
