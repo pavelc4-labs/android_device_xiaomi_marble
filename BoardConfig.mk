@@ -83,6 +83,7 @@ TARGET_KERNEL_SOURCE := kernel/xiaomi/marble
 TARGET_KERNEL_CONFIG := \
     gki_defconfig \
     vendor/waipio_GKI.config \
+    vendor/addon.config \
     vendor/marble_GKI.config \
     vendor/debugfs.config
 
@@ -94,7 +95,7 @@ BOARD_VENDOR_RAMDISK_FRAGMENT.dlkm.KERNEL_MODULE_DIRS := top
 
 BOARD_KERNEL_CMDLINE := \
     disable_dma32=on \
-    mtdoops.fingerprint=$(LINEAGE_VERSION)
+    mtdoops.fingerprint=$(SHINKAI_VERSION)
 BOARD_BOOTCONFIG := \
     androidboot.hardware=qcom \
     androidboot.memcg=1 \
