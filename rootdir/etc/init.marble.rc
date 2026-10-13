@@ -109,6 +109,23 @@ on post-fs-data
 on property:sys.boot_completed=1
     # Set thermal mode to mgame
     write /sys/devices/virtual/thermal/thermal_message/sconfig 20
+    # Apply RAM expansion on boot
+    stop vendor.ram_expansion
+    start vendor.ram_expansion
+
+on property:persist.vendor.ram_expansion=*
+    # Re-apply ZRAM whenever vendor property changes
+    # Must stop first because oneshot services won't restart otherwise
+    stop vendor.ram_expansion
+    start vendor.ram_expansion
+
+service vendor.ram_expansion /vendor/bin/ram_expansion.sh
+    class core
+    user root
+    group root system
+    disabled
+    oneshot
+    seclabel u:r:vendor_qti_init_shell:s0
 
 on property:persist.sys.xtra-daemon.enabled=*
     restart loc_launcher
