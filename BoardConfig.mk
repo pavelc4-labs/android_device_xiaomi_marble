@@ -76,7 +76,7 @@ BOARD_VENDOR_RAMDISK_FRAGMENT.dlkm.KERNEL_MODULE_DIRS := top
 BOARD_KERNEL_CMDLINE := \
     disable_dma32=on \
     log_buf_len=1M \
-    mtdoops.fingerprint=$(LINEAGE_VERSION) \
+    mtdoops.fingerprint=$(CUSTOM_VERSION) \
     printk.devkmsg=on \
     scsi_mod.scan=sync
 BOARD_BOOTCONFIG := \
@@ -128,8 +128,6 @@ TARGET_COPY_OUT_SYSTEM_DLKM := system_dlkm
 TARGET_COPY_OUT_SYSTEM_EXT := system_ext
 TARGET_COPY_OUT_VENDOR := vendor
 TARGET_COPY_OUT_VENDOR_DLKM := vendor_dlkm
-
--include vendor/lineage/config/BoardConfigReservedSize.mk
 
 # Platform
 BOARD_USES_QCOM_HARDWARE := true
