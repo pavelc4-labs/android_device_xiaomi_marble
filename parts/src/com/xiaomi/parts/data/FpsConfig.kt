@@ -27,7 +27,6 @@ data class FpsStatsSnapshot(
     val gpuTemp: String = "0°C",
     val gpuSpeed: String = "0 MHz",
     val ramUsage: String = "0.0 GB",
-    val isMock: Boolean = false,
 )
 
 @Immutable
@@ -44,7 +43,6 @@ data class FpsConfigSnapshot(
     val showRam: Boolean = true,
     val showCompact: Boolean = false,
     val touchPassthrough: Boolean = false,
-    val mockData: Boolean = false,
 ) {
     fun hasEnabledMetrics(): Boolean =
         showFps || showCpuUsage || showCpuTemp || showGpuUsage || showGpuTemp || showGpuSpeed || showRam
@@ -55,7 +53,6 @@ class FpsPrefs private constructor(
 ) {
     private val store = context.partsDataStore
     private val serviceIntent by lazy { Intent(context, FpsOverlayService::class.java) }
-    private val defaultMock = !FpsHardwareMonitor.isHardwareAvailable()
 
     @Volatile
     private var loadedFromStore = false
@@ -63,7 +60,7 @@ class FpsPrefs private constructor(
     private val _isEnabledFlow = MutableStateFlow(false)
     val isEnabledFlow: StateFlow<Boolean> = _isEnabledFlow.asStateFlow()
 
-    private val _configFlow = MutableStateFlow(FpsConfigSnapshot(mockData = defaultMock))
+    private val _configFlow = MutableStateFlow(FpsConfigSnapshot())
     val configFlow: StateFlow<FpsConfigSnapshot> = _configFlow.asStateFlow()
 
     init {
@@ -84,10 +81,6 @@ class FpsPrefs private constructor(
             PartsStoreScope.editAsync(store) { it[KEY_ENABLED] = value }
             if (value) startService() else stopService()
         }
-
-    var mockData: Boolean
-        get() = _configFlow.value.mockData
-        set(value) = updateConfig(KEY_MOCK_DATA, value) { it.copy(mockData = value) }
 
     var fpsIntervalMs: Long
         get() = _configFlow.value.fpsIntervalMs
@@ -181,12 +174,10 @@ class FpsPrefs private constructor(
         showRam = this[KEY_SHOW_RAM] ?: true,
         showCompact = this[KEY_COMPACT] ?: false,
         touchPassthrough = this[KEY_TOUCH_PASSTHROUGH] ?: false,
-        mockData = this[KEY_MOCK_DATA] ?: defaultMock,
     )
 
     companion object {
         private val KEY_ENABLED = booleanPreferencesKey("fps_enabled")
-        private val KEY_MOCK_DATA = booleanPreferencesKey("fps_mock_data")
         private val KEY_INTERVAL_MS = longPreferencesKey("fps_interval_ms")
         private val KEY_COMPACT = booleanPreferencesKey("fps_compact")
         private val KEY_TOUCH_PASSTHROUGH = booleanPreferencesKey("fps_touch_passthrough")

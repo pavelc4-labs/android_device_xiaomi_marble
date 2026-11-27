@@ -105,12 +105,10 @@
     <string name="fps_subtitle">Floating performance &amp; frame-rate overlay</string>
     <string name="fps_preview_title">Live HUD Preview</string>
     <string name="fps_overlay_active">Floating HUD overlay is active</string>
-    <string name="fps_section_control">Overlay &amp; Testing</string>
+    <string name="fps_section_control">Overlay</string>
     <string name="fps_enable_title">Floating FPS Overlay</string>
     <string name="fps_enable_desc">Show draggable FPS &amp; telemetry HUD over apps</string>
     <string name="fps_permission_needed">Tap to grant Display over other apps permission</string>
-    <string name="fps_mock_mode_title">Simulate Mock Telemetry</string>
-    <string name="fps_mock_mode_desc">Generate live sample data for non-root testing</string>
     <string name="fps_section_appearance">Appearance &amp; Interval</string>
     <string name="fps_poll_interval_title">FPS Refresh Interval</string>
     <string name="fps_bg_opacity">Background Opacity</string>

@@ -172,44 +172,35 @@ fun FpsMeterScreen(
                 }
             }
 
-            // 2. Master & Testing Section
+            // 2. Master Control Section
             item(key = "fps_master", contentType = "control") {
                 SectionLabel(
                     label = stringResource(R.string.fps_section_control),
                     modifier = Modifier.padding(start = 8.dp, bottom = 8.dp),
                 )
-                ExpressiveList(count = 2) { index ->
-                    when (index) {
-                        0 -> SwitchSettingItem(
-                            title = stringResource(R.string.fps_enable_title),
-                            subtitle = stringResource(
-                                if (hasOverlayPerm) R.string.fps_enable_desc
-                                else R.string.fps_permission_needed
-                            ),
-                            checked = isEnabled,
-                            onCheckedChange = { checked ->
-                                if (checked && !prefs.hasOverlayPermission()) {
-                                    prefs.isEnabled = true
-                                    val intent = Intent(
-                                        Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
-                                        Uri.parse("package:${context.packageName}"),
-                                    ).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                                    context.startActivity(intent)
-                                } else {
-                                    prefs.isEnabled = checked
-                                }
-                            },
-                            icon = Icons.Outlined.PictureInPictureAlt,
-                        )
-                        1 -> SwitchSettingItem(
-                            title = stringResource(R.string.fps_mock_mode_title),
-                            subtitle = stringResource(R.string.fps_mock_mode_desc),
-                            checked = config.mockData,
-                            onCheckedChange = { prefs.mockData = it },
-                            icon = Icons.Outlined.Science,
-                            showDivider = false,
-                        )
-                    }
+                ExpressiveList(count = 1) {
+                    SwitchSettingItem(
+                        title = stringResource(R.string.fps_enable_title),
+                        subtitle = stringResource(
+                            if (hasOverlayPerm) R.string.fps_enable_desc
+                            else R.string.fps_permission_needed
+                        ),
+                        checked = isEnabled,
+                        onCheckedChange = { checked ->
+                            if (checked && !prefs.hasOverlayPermission()) {
+                                prefs.isEnabled = true
+                                val intent = Intent(
+                                    Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                                    Uri.parse("package:${context.packageName}"),
+                                ).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                context.startActivity(intent)
+                            } else {
+                                prefs.isEnabled = checked
+                            }
+                        },
+                        icon = Icons.Outlined.PictureInPictureAlt,
+                        showDivider = false,
+                    )
                 }
             }
 

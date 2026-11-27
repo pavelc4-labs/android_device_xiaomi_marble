@@ -34,7 +34,7 @@ object FpsHardwareMonitor {
 
     fun pollFpsOnly(config: FpsConfigSnapshot): String {
         if (!config.showFps) return "0"
-        if (config.mockData || !isHardwareAvailable()) {
+        if (!isHardwareAvailable()) {
             tick++
             val wave = sin(tick * 0.45)
             return (116 + (wave * 3.5) + Random.nextInt(-2, 3)).roundToInt().coerceIn(58, 120).toString()
@@ -43,7 +43,7 @@ object FpsHardwareMonitor {
     }
 
     fun pollFastMetrics(config: FpsConfigSnapshot, previous: FpsStatsSnapshot): FpsStatsSnapshot {
-        if (config.mockData || !isHardwareAvailable()) {
+        if (!isHardwareAvailable()) {
             val wave = sin(tick * 0.45)
             val cpuVal = (31 + (wave * 9) + Random.nextInt(-3, 4)).roundToInt().coerceIn(12, 85)
             val gpuVal = (42 + (wave * 14) + Random.nextInt(-4, 5)).roundToInt().coerceIn(15, 92)
@@ -52,7 +52,6 @@ object FpsHardwareMonitor {
                 cpuTotal = if (config.showCpuUsage) "$cpuVal%" else previous.cpuTotal,
                 gpuUsage = if (config.showGpuUsage) "$gpuVal%" else previous.gpuUsage,
                 gpuSpeed = if (config.showGpuSpeed) "$gpuMHz MHz" else previous.gpuSpeed,
-                isMock = true,
             )
         }
 
@@ -60,7 +59,6 @@ object FpsHardwareMonitor {
             cpuTotal = if (config.showCpuUsage) readCpuUsage() else previous.cpuTotal,
             gpuUsage = if (config.showGpuUsage) readGpuUsage() else previous.gpuUsage,
             gpuSpeed = if (config.showGpuSpeed) "${readGpuClock()} MHz" else previous.gpuSpeed,
-            isMock = false,
         )
     }
 
@@ -70,7 +68,7 @@ object FpsHardwareMonitor {
         previous: FpsStatsSnapshot,
     ): FpsStatsSnapshot {
         val ramUsage = if (config.showRam) readRamUsage(context) else previous.ramUsage
-        if (config.mockData || !isHardwareAvailable()) {
+        if (!isHardwareAvailable()) {
             val wave = sin(tick * 0.45)
             val cpuTempVal = (41.2 + (wave * 1.6) + Random.nextDouble(-0.3, 0.4)).roundToInt()
             val gpuTempVal = (38.8 + (wave * 1.4) + Random.nextDouble(-0.2, 0.3)).roundToInt()
@@ -78,7 +76,6 @@ object FpsHardwareMonitor {
                 cpuTemp = if (config.showCpuTemp) "$cpuTempVal°C" else previous.cpuTemp,
                 gpuTemp = if (config.showGpuTemp) "$gpuTempVal°C" else previous.gpuTemp,
                 ramUsage = ramUsage,
-                isMock = true,
             )
         }
 
@@ -86,7 +83,6 @@ object FpsHardwareMonitor {
             cpuTemp = if (config.showCpuTemp) readTemp(CPU_TEMP_PATH) else previous.cpuTemp,
             gpuTemp = if (config.showGpuTemp) readTemp(GPU_TEMP_PATH) else previous.gpuTemp,
             ramUsage = ramUsage,
-            isMock = false,
         )
     }
 
