@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- App & General -->
+    <string name="app_title">Xiaomi Parts</string>
+    <string name="app_summary">Device features and performance tuning</string>
+    <string name="app_tagline">beep boop</string>
+    <string name="action_back">Back</string>
+    <string name="action_reset">Reset</string>
+    <string name="action_clear">Clear</string>
+    <string name="action_sort">Sort</string>
+
+    <!-- Categories -->
+    <string name="category_display_audio">Display &amp; Audio</string>
+    <string name="category_performance">Performance</string>
+    <string name="category_gestures_ambient">Gestures &amp; Doze</string>
+    <string name="category_general_about">General &amp; About</string>
+
+    <!-- Features -->
+    <string name="feat_saturation_title">Display Saturation</string>
+    <string name="feat_saturation_desc">Custom vibrance &amp; color tuning</string>
+    <string name="feat_speaker_title">Clear Speaker</string>
+    <string name="feat_speaker_desc">Play high-frequency audio to eject dust</string>
+    <string name="feat_thermal_title">Thermal Profiles</string>
+    <string name="feat_thermal_desc">Per-app performance throttling</string>
+    <string name="feat_fps_title">FPS Meter</string>
+    <string name="feat_fps_desc">Floating real-time FPS &amp; hardware HUD</string>
+    <string name="feat_doze_title">Doze</string>
+    <string name="feat_doze_desc">Always on display &amp; pickup gestures</string>
+    <string name="feat_about_title">About</string>
+    <string name="feat_about_desc">Device &amp; maintainer information</string>
+
+    <!-- Saturation Screen -->
+    <string name="saturation_subtitle">Live display color saturation control</string>
+    <string name="saturation_slider_title">Color Vibrance Level</string>
+    <string name="saturation_presets_title">Color Profile Presets</string>
+    <string name="preset_standard_title">Standard</string>
+    <string name="preset_standard_desc">Balanced natural colors</string>
+    <string name="preset_vivid_title">Vivid</string>
+    <string name="preset_vivid_desc">Punchy and saturated display</string>
+    <string name="preset_boosted_title">Boosted</string>
+    <string name="preset_boosted_desc">High dynamic contrast</string>
+    <string name="preset_natural_title">Natural</string>
+    <string name="preset_natural_desc">sRGB accurate color tuning</string>
+
+    <!-- Clear Speaker Screen -->
+    <string name="clear_speaker_ready">Speaker Ready</string>
+    <string name="clear_speaker_cleaning">Cleaning Speaker (%1$d s)</string>
+    <string name="clear_speaker_idle_desc">Tap the button below to start the 30-second cleaning cycle.</string>
+    <string name="clear_speaker_running_desc">Playing high-frequency audio wave at maximum volume...</string>
+    <string name="clear_speaker_start">Start Clear Speaker</string>
+    <string name="clear_speaker_stop">Stop Cleaning</string>
+    <string name="clear_speaker_info_title">Speaker Cleaning Mode</string>
+    <string name="clear_speaker_info_desc">Plays an intense 30-second high-frequency sound wave designed to dislodge dust and water from the speaker mesh. Set volume to maximum.</string>
+
+    <!-- Thermal Profiles Screen -->
+    <string name="thermal_subtitle">Per-app thermal &amp; performance tuning</string>
+    <string name="thermal_search_placeholder">Search apps or package...</string>
+    <string name="thermal_active_profiles">Active Profiles</string>
+    <string name="thermal_installed_apps">Installed Applications</string>
+    <string name="thermal_no_apps_found">No applications found matching \'%1$s\'</string>
+    <string name="thermal_select_profile">Select Profile</string>
+    <string name="thermal_for_app">for %1$s</string>
+    <string name="thermal_profile_default">Default</string>
+    <string name="thermal_profile_default_desc">System managed thermal governor</string>
+    <string name="thermal_profile_gaming">Gaming</string>
+    <string name="thermal_profile_gaming_desc">Maximum GPU/CPU clocks with relaxed limits</string>
+    <string name="thermal_profile_benchmark">Benchmark</string>
+    <string name="thermal_profile_benchmark_desc">Aggressive performance profile</string>
+    <string name="thermal_profile_browser">Browser</string>
+    <string name="thermal_profile_browser_desc">Balanced efficiency for web browsing</string>
+    <string name="thermal_profile_camera">Camera</string>
+    <string name="thermal_profile_camera_desc">Optimized frame-drop prevention</string>
+    <string name="thermal_profile_streaming">Streaming</string>
+    <string name="thermal_profile_streaming_desc">Low heat and battery saving profile</string>
+
+    <!-- Doze Screen -->
+    <string name="doze_master_section">Master Switch</string>
+    <string name="doze_enable_title">Enable Doze</string>
+    <string name="doze_enable_desc">Wake screen when notifications or gestures trigger</string>
+    <string name="doze_gestures_section">Sensor Gestures</string>
+    <string name="doze_hand_wave_title">Hand Wave</string>
+    <string name="doze_hand_wave_desc">Pulse screen on proximity hand wave over the sensor</string>
+    <string name="doze_pocket_title">Pocket Detection</string>
+    <string name="doze_pocket_desc">Pulse display when device is removed from pocket</string>
+    <string name="doze_pickup_title">Pick Up</string>
+    <string name="doze_pickup_desc">Pulse display when device is picked up</string>
+
+    <!-- About Screen -->
+    <string name="about_developer_title">Developer</string>
+    <string name="about_developer_subtitle">The person behind Xiaomi Parts.</string>
+    <string name="about_developer_name">Dimas Dwi Ariyanto</string>
+    <string name="about_developer_bio">just an ordinary student | informatic engineering</string>
+    <string name="about_support_title">Support</string>
+    <string name="about_support_subtitle">Help fuel ongoing development and updates.</string>
+    <string name="about_buy_coffee_title">Buy a Coffee ?</string>
+    <string name="about_buy_coffee_subtitle">Support development and show your appreciation</string>
+    <string-array name="about_tech_pills" translatable="false">
+        <item>Kotlin</item>
+        <item>Jetpack Compose</item>
+        <item>M3 Expressive</item>
+        <item>Open Source</item>
+    </string-array>
+
+    <!-- FPS Meter Screen -->
+    <string name="fps_subtitle">Floating performance &amp; frame-rate overlay</string>
+    <string name="fps_preview_title">Live HUD Preview</string>
+    <string name="fps_overlay_active">Floating HUD overlay is active</string>
+    <string name="fps_section_control">Overlay &amp; Testing</string>
+    <string name="fps_enable_title">Floating FPS Overlay</string>
+    <string name="fps_enable_desc">Show draggable FPS &amp; telemetry HUD over apps</string>
+    <string name="fps_permission_needed">Tap to grant Display over other apps permission</string>
+    <string name="fps_mock_mode_title">Simulate Mock Telemetry</string>
+    <string name="fps_mock_mode_desc">Generate live sample data for non-root testing</string>
+    <string name="fps_section_appearance">Appearance &amp; Interval</string>
+    <string name="fps_poll_interval_title">FPS Refresh Interval</string>
+    <string name="fps_bg_opacity">Background Opacity</string>
+    <string name="fps_text_size">Text Size</string>
+    <string name="fps_section_metrics">Metrics &amp; Behavior</string>
+    <string name="fps_compact_mode">Compact Mode</string>
+    <string name="fps_compact_mode_desc">Minimal horizontal layout for small screens</string>
+    <string name="fps_touch_passthrough">Touch Passthrough</string>
+    <string name="fps_touch_passthrough_desc">Let taps pass straight through the overlay</string>
+    <string name="fps_show_fps">Show FPS</string>
+    <string name="fps_show_fps_desc">Display real-time frames per second counter</string>
+    <string name="fps_show_cpu">Show CPU Usage</string>
+    <string name="fps_show_cpu_desc">Display overall processor load percentage</string>
+    <string name="fps_show_cpu_temp">Show CPU Temperature</string>
+    <string name="fps_show_cpu_temp_desc">Include rounded CPU thermal sensor reading</string>
+    <string name="fps_show_gpu">Show GPU Usage</string>
+    <string name="fps_show_gpu_desc">Display Adreno graphics utilization percentage</string>
+    <string name="fps_show_gpu_temp">Show GPU Temperature</string>
+    <string name="fps_show_gpu_temp_desc">Include rounded GPU thermal sensor reading</string>
+    <string name="fps_show_gpu_speed">Show GPU Clock Frequency</string>
+    <string name="fps_show_gpu_speed_desc">Display current GPU clock frequency in MHz</string>
+    <string name="fps_show_ram">Show RAM Usage</string>
+    <string name="fps_show_ram_desc">Display active system memory usage in GB</string>
+    <string name="fps_hud_fps">FPS</string>
+    <string name="fps_hud_cpu">CPU</string>
+    <string name="fps_hud_gpu">GPU</string>
+    <string name="fps_hud_ram">RAM</string>
+    <string name="fps_hud_gpu_clock">GPU Clock</string>
+</resources>
