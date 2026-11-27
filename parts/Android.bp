@@ -55,6 +55,7 @@ android_app {
 
     kotlincflags: [
         "-Xjvm-default=all",
+        "-Xannotation-default-target=param-property",
         "-opt-in=kotlin.RequiresOptIn",
         "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api",
         "-P plugin:androidx.compose.compiler.plugins.kotlin:sourceInformation=true",
